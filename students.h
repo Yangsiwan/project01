@@ -42,3 +42,5 @@ int find_num(T_Record* p);
 int find_delivery(T_Record* p);
 void sort_by_name();
 void sort_by_room();
+int check_password(T_Record*p,char*pw);
+void m_update(T_Record*p,char *n,int r,char*pw);

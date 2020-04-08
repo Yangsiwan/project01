@@ -11,11 +11,12 @@ void sort();
 void delete_record();
 void delete_empty_space();
 void save_statics();
+void update_record();
 int main(){
    m_init();
    int menu;
    while(1){
-     printf("\nMenu : 1.Create 2.Search(number) 3.Search(room) 4.Delivery List 5.All List 6.Update Delivery 7.Load 8.Save 9.Sort(student number) 10.Delete 11.Delete empty space 12.save (statics)  0.Quit\n");
+     printf("\nMenu : 1.Create 2.Search(number) 3.Search(room) 4.Delivery List 5.All List 6.Update Delivery 7.Load 8.Save 9.Sort(student number) 10.Delete 11.Delete empty space 12.save (statics) 13.Update 0.Quit\n");
      scanf("%d",&menu);
      printf("\n");
      switch(menu){
@@ -54,6 +55,9 @@ int main(){
 	   break;
 	case 12:
 	   save_statics();
+	   break;
+	case 13:
+	   update_record();
 	   break;
         default:
         case 0:
@@ -306,4 +310,39 @@ fprintf(f,"[S.Num %d] %.1f %%\n",i+11,ratio[i]);
 }
 }
 printf("All statics on delivery system by student number saved.\n");
+}
+
+void update_record(){
+  char s_num[20], name[20], password[20];
+  int room;
+printf("Enter a student number > ");
+scanf("%s",s_num);
+
+T_Record*p = m_search_by_num(s_num);
+if(p){
+   printf("Enter a password > ");
+   scanf("%s",password);
+  if(!check_password(p,password)){
+     printf("Wrong password!\n");
+     return;
+     }
+   printf("Enter a updated info.\n");
+   printf("Name > ");
+   scanf("%s", name);
+   printf("Room > ");
+   scanf("%d",&room);
+ while(1){
+ printf("Password > ");
+ scanf("%s",password);
+ if(!m_same_password(s_num, password)){
+    printf("Enter the password again.\n");
+   }
+ else break;
+ }
+   m_update(p,name,room,password);
+
+  }
+else{
+ printf("No such member!\n");
+}
 }

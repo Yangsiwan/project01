@@ -338,3 +338,14 @@ for(int i=0;i<_count;i++){
 }
 #endif
 }
+
+int check_password(T_Record*p,char * pw){
+  if(strcmp(p->password,pw)==0) return 1;
+return 0;
+}
+
+void m_update(T_Record*p,char*n,int r,char*pw){
+  strcpy(p->name,n);
+  p->room=r;
+  strcpy(p->password,pw);
+}
