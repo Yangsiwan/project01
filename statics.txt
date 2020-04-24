@@ -1,0 +1,9 @@
+[Courier utilization statistics by school number]
+[S.Num 13] 1.0 %
+[S.Num 14] 2.1 %
+[S.Num 15] 3.6 %
+[S.Num 16] 11.3 %
+[S.Num 17] 16.4 %
+[S.Num 18] 24.6 %
+[S.Num 19] 28.7 %
+[S.Num 20] 12.3 %

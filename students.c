@@ -1,12 +1,9 @@
 #include "students.h"
-#ifdef DEBUG
-#define DEBUG
-#endif
 T_Record* students[MAX_MEMBERS];
 int _count = 0 ;
 
 int m_is_available(){
-   int i;
+   int i=0;
    for(i=0;i<MAX_MEMBERS;i++){
      if(students[i] ==NULL) return 1;
    }
@@ -60,7 +57,7 @@ int m_same_password(char* sn, char* pw){
   }
  new_sn[4]='\0';
 #ifdef DEBUG
-printf("[NEW NUMBER] %s\n",new_sn);
+printf("[Same password cheking : NEW NUMBER] %s\n",new_sn);
 #endif
  char new_pw[3]={0};
 for(int j=0;j<8;j++){
@@ -70,7 +67,7 @@ for(int j=0;j<8;j++){
 if(strcmp(new_pw,new_sn)==0) return 0;
 }
 #ifdef DEBUG
-printf("[NEW PW] %s\n",new_pw);
+printf("[Same password chaking : NEW PW] %s\n",new_pw);
 #endif
 return 1;
 }
@@ -348,4 +345,23 @@ void m_update(T_Record*p,char*n,int r,char*pw){
   strcpy(p->name,n);
   p->room=r;
   strcpy(p->password,pw);
+}
+int take_delivery(T_Record*p,int d){
+ #ifdef DEBUG
+  printf("[BEFORE :find delivery]\n");
+  printf("delivery :%d\n",p->delivery);
+ #endif
+if(d>p->delivery) return 0;
+
+ if(d==0){
+  p->delivery=0;
+  }
+ else{
+  p->delivery-=d;
+ }
+ #ifdef DEBUG
+  printf("[AFTER :find delivery]\n");
+  printf("delivery :%d\n",p->delivery);
+ #endif
+ return 1;
 }

@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define MAX_MEMBERS 5
+#define MAX_MEMBERS 50
 typedef struct student{
    char s_num[20];
    char name[20];
@@ -44,3 +44,4 @@ void sort_by_name();
 void sort_by_room();
 int check_password(T_Record*p,char*pw);
 void m_update(T_Record*p,char *n,int r,char*pw);
+int take_delivery(T_Record*p, int d);

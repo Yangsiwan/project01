@@ -6,17 +6,19 @@ void delivery_list();
 void all_list(); //관리자가 비밀번호를 쳐야만 들어갈 수 있음.(비밀번호: vision00 )
 void update_delivery();
 void load_file();//file loading
-void save_file();
+void save_backup_file();
 void sort();
 void delete_record();
 void delete_empty_space();
 void save_statics();
 void update_record();
+void f_delivery();
+void back_up();
 int main(){
    m_init();
    int menu;
    while(1){
-     printf("\nMenu : 1.Create 2.Search(number) 3.Search(room) 4.Delivery List 5.All List 6.Update Delivery 7.Load 8.Save 9.Sort(student number) 10.Delete 11.Delete empty space 12.save (statics) 13.Update 0.Quit\n");
+     printf("\nMenu : 1.Create 2.Search(number) 3.Search(room) 4.Delivery List 5.All List 6.Update Delivery 7.Load 8.Save(backup) 9.Sort 10.Delete 11.Delete empty space 12.save (statics) 13.Update 14.Find delivery 15.Backup 0.Quit\n");
      scanf("%d",&menu);
      printf("\n");
      switch(menu){
@@ -42,7 +44,7 @@ int main(){
 	   load_file();
 	   break;
 	case 8:
-	   save_file();
+	   save_backup_file();
 	   break;
 	case 9:
 	   sort();
@@ -58,6 +60,12 @@ int main(){
 	   break;
 	case 13:
 	   update_record();
+	   break;
+	case 14:
+	   f_delivery();
+	   break;
+	case 15:
+	   back_up();
 	   break;
         default:
         case 0:
@@ -205,7 +213,7 @@ char s_num[20], name[20], password[20];
 int room, delivery;
 while(!feof(f)){
    if(!m_is_available()) {
-        printf("[Load] There is no space!\n");
+       printf("[Load] There is no space!\n");
         break;
     }
 int n = fscanf(f,"%s %s %d %s %d",s_num, name, &room,password,&delivery);
@@ -220,16 +228,20 @@ printf("%d records are read from file!\n",m_count());
 fclose(f);
 }
 
-void save_file(){
-  FILE * f = fopen("students.txt","w");
+void save_backup_file(){
+  FILE * f = fopen("backup.txt","w");
   printf("Do you want to sort students by student number?(1.Yes 2.No) > ");
   int yesno;
   scanf("%d",&yesno);
+  if(f==NULL){
+   printf("Please delete empty space.\n");
+   return;
+  }
   if(yesno==1){
   sort_by_num(); 
-  printf("All \'sorted\' records saved.\n");
+  printf("All \'sorted\' backup records saved.\n");
   }
-  else printf("All \'unsorted\'records saved.\n");
+  else printf("All \'unsorted\'backup records saved.\n");
   int size = m_count();
   T_Record* records[MAX_MEMBERS];
   m_get_all(records);
@@ -345,4 +357,74 @@ if(p){
 else{
  printf("No such member!\n");
 }
+}
+
+void f_delivery(){
+  char s_num[20],password[20];
+  int delivery, d_num;
+  printf("Enter a student number > ");
+  scanf("%s",s_num);
+
+T_Record* p = m_search_by_num(s_num);
+if(p){
+  if(m_getdelivery(p)==0){
+    printf("You don't have delivery.\n");
+    return;
+    }
+  printf("Enter a password > ");
+  scanf("%s",password);
+  if(!check_password(p,password)){
+     printf("Wrong password!\n");
+     return;
+    }
+  printf("Your delivery : %d\n",m_getdelivery(p));
+  printf("Enter the number of delivery you take out(0:All)\n");
+while(1){
+  scanf("%d",&d_num);
+  delivery=take_delivery(p,d_num);
+  if(delivery==0){
+   printf("Enter again.\nYour delivery: %d\n",m_getdelivery(p));
+}
+
+ else break;
+}
+  if(d_num!=0)printf("Take out your \"%d\" delivery\n",d_num);
+  else printf("Take out your ALL delivery\n");
+  printf("Your delivery : %d\n",m_getdelivery(p));
+}
+else{
+ printf("No such member!\n");
+}
+}
+
+void back_up(){
+ printf("All data will be delete and records will be backed up.\n");
+printf("1.Yes 0.No >");
+int choose;
+scanf("%d",&choose);
+if(choose==0) return;
+m_init();
+
+FILE* f =fopen("backup.txt","r");
+char s_num[20], name[20], password[20];
+int room, delivery;
+if(f==NULL){
+ printf("No backup file\n");
+ return;
+}
+while(!feof(f)){
+   if(!m_is_available()) {
+        printf("[Load] There is no space!\n");
+        break;
+    }
+int n = fscanf(f,"%s %s %d %s %d",s_num, name, &room,password,&delivery);
+if(n<5) break;
+if(m_search_by_num(s_num)!=NULL) {
+    printf("[Load] Duplicated student number(%s)!\n",s_num);
+    continue;
+  }
+m_create(s_num,name,room,password,delivery);
+}
+printf("%d backup records are read from file!\n",m_count());
+fclose(f);
 }
