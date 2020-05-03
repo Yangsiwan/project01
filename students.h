@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define MAX_MEMBERS 50
+#define MAX_MEMBERS 51
 typedef struct student{
    char s_num[20];
    char name[20];
