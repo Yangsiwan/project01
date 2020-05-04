@@ -18,7 +18,9 @@ int main(){
    m_init();
    int menu;
    while(1){
-     printf("\nMenu : 1.Create 2.Search(number) 3.Search(room) 4.Delivery List 5.All List 6.Update Delivery 7.Load 8.Save(backup) 9.Sort 10.Delete 11.Delete empty space 12.save (statics) 13.Update 14.Find delivery 15.Backup 0.Quit\n");
+     printf("======================[MENU]======================\n");
+     printf("1.Create 2.Search(number) 3.Search(room) \n4.Delivery List 5.All List 6.Update Delivery \n7.Load 8.Save(backup) 9.Sort 10.Delete\n 11.Delete empty space 12.save (statics) 13.Update \n14.Find delivery 15.Backup 0.Quit\n");
+     printf("==================================================\n");
      scanf("%d",&menu);
      printf("\n");
      switch(menu){
