@@ -19,7 +19,7 @@ int main(){
    int menu;
    while(1){
      printf("======================[MENU]======================\n");
-     printf("1.Create 2.Search(number) 3.Search(room) \n4.Delivery List 5.All List 6.Update Delivery \n7.Load 8.Save(backup) 9.Sort 10.Delete\n 11.Delete empty space 12.save (statics) 13.Update \n14.Find delivery 15.Backup 0.Quit\n");
+     printf("1.Create\t2.Search(number)\t3.Search(room)\n4.Delivery List\t   5.All List\t6.Update Delivery\n7.Load\t8.Save(backup)\t9.Sort\t10.Delete\n11.Delete empty space\t12.save (statics)\t13.Update\n14.Find delivery\t15.Backup\t0.Quit\n");
      printf("==================================================\n");
      scanf("%d",&menu);
      printf("\n");
