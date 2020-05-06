@@ -89,17 +89,19 @@ void create_record(){
     }
   char s_num[20], name[20], password[20];
   int room;
+  printf("====================[CREATE NEW RECORD]====================\n");
   printf("Enter a new student's info.\n");
   while(1){
   printf("Student number > ");
   scanf("%s",s_num);
   if(!s_num_size(s_num)){
-    printf("Student number's size must 8.\n");
+    printf("[ERROR]Student number's size must 8.\n");
    }
   else break;
  }
  if(m_search_by_num(s_num)){
-   printf("Duplicated student number!\n");
+   printf("[ERROR]Duplicated student number!\n");
+   printf("=========================================================\n");
    return;
   }
  printf("Name > ");
@@ -110,11 +112,12 @@ void create_record(){
  printf("Password > ");
  scanf("%s",password);
  if(!m_same_password(s_num, password)){
-    printf("Enter the password again.\n");
+    printf("[ERROR]Enter the password again.\n");
    }
  else break;
  }
  m_create(s_num, name, room, password,0);
+   printf("=========================================================\n");
 }
 
 void search_student(){
