@@ -21,7 +21,13 @@ int m_first_available(){
 int m_count(){
    return _count;
 }
-
+void current_time(){
+ time_t ct;
+ struct tm *t;
+ ct = time(NULL);
+ t = localtime(&ct);
+ printf("%d-%d-%d %d:%d:%d\n",t->tm_year+1900, t->tm_mon+1, t->tm_mday, t->tm_hour, t->tm_min, t->tm_sec);
+}
 void m_create(char*sn, char*n, int r, char*pw,int d){
    int index= m_first_available();
    students[index] = (T_Record*)malloc(sizeof(T_Record));
