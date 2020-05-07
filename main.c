@@ -122,6 +122,7 @@ void create_record(){
 
 void search_student(){
   char s_num[20];
+  printf("=============[SEARCH STUDENT:STUDENT NUMBER]==============\n");
   printf("Enter a student number > ");
   scanf("%s", s_num);
   T_Record* p = m_search_by_num(s_num);
