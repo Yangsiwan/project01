@@ -203,6 +203,7 @@ void update_delivery(){
     else break;
    }
    m_update_delivery(p,delivery);
+   printf("Delivery at "); current_time();
    printf("Updated!\n");
   }
   else{
