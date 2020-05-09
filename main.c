@@ -136,10 +136,12 @@ void search_student(){
  else {
   printf("No such member!\n");
  }
+   printf("=========================================================\n");
 }
 
 void search_room(){
  int room;
+ printf("==================[SEARCH STUDENT:ROOM]===================\n");
  printf("Enter a room > ");
  scanf("%d",&room);
  T_Record* records[MAX_MEMBERS];
@@ -153,6 +155,7 @@ void search_room(){
     T_Record* p = records[i];
     printf("%d. %s\n", i+1 , m_to_string(p));
   }
+   printf("=========================================================\n");
 }
 
 void delivery_list(){
