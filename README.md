@@ -20,5 +20,5 @@ made by 21900429 양시완
 14. Find delivery : 택배를 찾는다.
 15. Backup : 백업 파일을 불러온다.
 
-[양시완 project](https://github.com/Yangsiwan/project01,"project01 github")
+[양시완 project](https://github.com/Yangsiwan/project01, "project01 github")
 
