@@ -22,5 +22,5 @@ made by 21900429 양시완
 
 ## 참고 ##
 [양시완 project](https://github.com/Yangsiwan/project01, "project01 github")    
-[마크다운 사용법] (https://gist.github.com/ihoneymon/652be052a0727ad59601, "마크다운 사용법")
+[마크다운 사용법] (https://gist.github.com/ihoneymon/652be052a0727ad59601, "markdown")
 
