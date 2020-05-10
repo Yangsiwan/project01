@@ -20,6 +20,18 @@ made by 21900429 양시완
 14. Find delivery : 택배를 찾는다.
 15. Backup : 백업 파일을 불러온다.
 
+## 주의사항 ##
+* CREATE / UPDATE
+  * 학번 길이는 8자 이상으로 할 것
+  * 비밀번호를 생성/변경할 때 학번 뒤 세글자와 겹치는 부분이 없도록 할 것
+  * 이미 존재하는 레코드의 학번으로 생성/변경 불가
+  * 방에 4명이상의 레코드가 존재하면 해당 방으로 설정 불가
+* READ
+  * 없는 학번/ 방 호수이면 레코드를 찾을 수 없음
+  * 모든 리스트 보기(관리자 모드)가 아니면 비밀번호는 함부로 열람할 수 없음
+* DELETE
+  * 레코드를 지운 후에 조각 모음을 하지 않고 sorting을 하면 공간오류가 뜸.
+
 ## 참고 ##
 * [양시완 project](https://github.com/Yangsiwan/project01, "project01 github")    
 * [마크다운 사용법](https://gist.github.com/ihoneymon/652be052a0727ad59601, "how to use markdown")
