@@ -159,6 +159,7 @@ void search_room(){
 }
 
 void delivery_list(){
+ printf("=====================[DELIVERY LIST]======================\n");
  T_Record* records[MAX_MEMBERS];
  if(!m_get_onemore(records)){
    printf("No student has more than one delivery\n");
