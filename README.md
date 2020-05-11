@@ -4,8 +4,8 @@ made by 21900429 양시완
 이 프로그램은 기숙사 택배 보관을 위한 레코드 생성, 읽기, 수정, 삭제를 할 수 있는 프로그램이다.    
 레코드를 호수, 이름, 학번 별로 정렬할 수 있고, 파일 백업, 택배이용통계현황을 저장할 수 있다.
 ## make utility를 이용한 사용법 ##
-1. make main : main 파일 생성
-2. make debug : debug 파일 생성
+* make main : main 파일 생성
+* make debug : debug 파일 생성
 ## 기능 ##
 > ### 1. create : 새로운 레코드를 생성한다.
 > ### 2. search (student number) : 학번으로 레코드를 검색한다.
