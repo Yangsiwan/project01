@@ -155,27 +155,29 @@ void search_room(){
     T_Record* p = records[i];
     printf("%d. %s\n", i+1 , m_to_string(p));
   }
-   printf("=========================================================\n");
+   printf("============================================================\n");
 }
 
 void delivery_list(){
- printf("=====================[DELIVERY LIST]======================\n");
+ printf("=======================[DELIVERY LIST]========================\n");
  T_Record* records[MAX_MEMBERS];
  if(!m_get_onemore(records)){
    printf("No student has more than one delivery\n");
    return;
  }
- printf("Delivery List.\n");
  int size=m_get_onemore(records);
  for(int i=0; i<size; i++){
    T_Record* p = records[i];
    printf("%d. %s\n", i+1, m_to_string2(p));
   }
+  printf("==============================================================\n");
 }
 
 void all_list(){
+  printf("=========================[ALL LIST]===========================\n");
   char ad_pw[20];
-  printf("Please enter the admin password to get access.\n");
+  printf("Please enter the administration password to get access.\n");
+  printf("Password > ");
   scanf("%s",ad_pw);
   if(!m_get_admin_password(ad_pw)){
     printf("Wrong password!\n");
@@ -190,16 +192,19 @@ void all_list(){
     T_Record* p = records[i];
     printf("%d. %s\n", i+1,m_to_ad_string(p));
    }
- }
+  printf("==============================================================\n");
+}
+ 
 
 void update_delivery(){
   char s_num[20];
   int delivery;
+  printf("======================[UPDATE DELIVERY]========================\n");
   printf("Enter a student number > ");
   scanf("%s",s_num);
   T_Record* p = m_search_by_num(s_num);
   if(p){
-    while(1){
+    while(1){  
     printf("Enter the number of delivery > ");
     scanf("%d",&delivery);
     if(delivery<1){
@@ -207,6 +212,7 @@ void update_delivery(){
      }
     else break;
    }
+   printf("Choose the delivery box\n");
    m_update_delivery(p,delivery);
    printf("Delivery at "); current_time();
    printf("Updated!\n");
@@ -214,6 +220,7 @@ void update_delivery(){
   else{
     printf("No such member!\n");
    }
+  printf("==============================================================\n");
 }
 
 void load_file(){
