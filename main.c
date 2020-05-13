@@ -224,6 +224,7 @@ void update_delivery(){
 }
 
 void load_file(){
+  printf("=========================[LOAD FILE]==========================\n");
 printf("All data will be delete and new records will be reloaded.\n");
 printf("1.Yes 0.No >");
 int choose;
@@ -249,9 +250,11 @@ m_create(s_num,name,room,password,delivery);
 }
 printf("%d records are read from file!\n",m_count());
 fclose(f);
+  printf("==============================================================\n");
 }
 
 void save_backup_file(){
+  printf("=====================[SAVE BACKUP FILE]=======================\n");
   FILE * f = fopen("backup.txt","w");
   printf("Do you want to sort students by student number?(1.Yes 2.No) > ");
   int yesno;
@@ -273,9 +276,11 @@ void save_backup_file(){
     fprintf(f,"%s\n", m_to_string_save(p));
    }
   fclose(f);
+  printf("==============================================================\n");
 }
 
 void sort(){
+  printf("======================[SORT RECORD]===========================\n");
  printf("[SORT] 1.Student number 2.Name 3.Room > ");
  int choice;
  scanf("%d",&choice);
@@ -294,6 +299,7 @@ void sort(){
     return;
 }
   printf("Sorting complete.\n");
+  printf("==============================================================\n");
 }
 
 void delete_record(){
