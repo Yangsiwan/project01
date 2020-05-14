@@ -47,4 +47,4 @@ int check_password(T_Record*p,char*pw);
 void m_update(T_Record*p,char *n,int r,char*pw);
 int take_delivery(T_Record*p, int d);
 void current_time();
-void print_delivery_box();
+void print_delivery_box(T_Record *p);
