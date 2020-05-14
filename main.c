@@ -212,7 +212,8 @@ void update_delivery(){
      }
     else break;
    }
-   printf("Choose the delivery box\n");
+   printf("Choose the delivery box.\n");
+   print_delivery_box(); 
    m_update_delivery(p,delivery);
    printf("Delivery at "); current_time();
    printf("Updated!\n");
