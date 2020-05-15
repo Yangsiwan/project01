@@ -199,6 +199,7 @@ void all_list(){
 void update_delivery(){
   char s_num[20];
   int delivery;
+  char *box;
   printf("======================[UPDATE DELIVERY]========================\n");
   printf("Enter a student number > ");
   scanf("%s",s_num);
@@ -214,8 +215,9 @@ void update_delivery(){
    }
    printf("Choose the delivery box.\n");
    print_delivery_box(p); 
+   scanf("%s",box);
    m_update_delivery(p,delivery);
-   printf("Delivery at "); current_time();
+   printf("Delivery time is "); current_time();
    printf("Updated!\n");
   }
   else{
