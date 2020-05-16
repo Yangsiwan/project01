@@ -307,6 +307,7 @@ void sort(){
 
 void delete_record(){
  char s_num[20];
+ printf("=======================[DELETE RECORD]=========================\n");
  printf("Enter a student number > ");
  scanf("%s",s_num);
  T_Record* p =m_search_by_num(s_num);
@@ -317,6 +318,7 @@ void delete_record(){
  else{
    printf("No such member!\n");
   }
+  printf("==============================================================\n");
 }
 void delete_empty_space(){
  m_delete_empty_space();
