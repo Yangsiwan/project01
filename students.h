@@ -10,6 +10,7 @@ typedef struct student{
    int room;
    char password[20];
    int delivery;
+   int d_lo;
   }T_Record;
 
 int m_is_available();
@@ -47,4 +48,4 @@ int check_password(T_Record*p,char*pw);
 void m_update(T_Record*p,char *n,int r,char*pw);
 int take_delivery(T_Record*p, int d);
 void current_time();
-void print_delivery_box(T_Record *p);
+void print_delivery_box(T_Record *p,int b);

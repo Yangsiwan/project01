@@ -372,7 +372,9 @@ if(d>p->delivery) return 0;
  return 1;
 }
 
-void print_delivery_box(T_Record *p){
+void print_delivery_box(T_Record*p,int b){
+  p->d_lo=b;
+  int box[5][3]={0}; 
   printf("--------------------------------------------------\n");
   printf("|         |         |         |         |         |\n");
   printf("|   (%d)   |   (%d)   |   (%d)   |   (%d)   |   (%d)   |\n",1,2,3,4,5);
