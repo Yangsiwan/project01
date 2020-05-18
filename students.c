@@ -374,7 +374,10 @@ if(d>p->delivery) return 0;
 
 void print_delivery_box(T_Record*p,int b){
   p->d_lo=b;
-  int box[5][3]={0}; 
+  int box[3][5]={0}; 
+  int row = change_row(b);
+  int col = change_col(b);
+  box[row][col]=p->delivery;
   printf("--------------------------------------------------\n");
   printf("|         |         |         |         |         |\n");
   printf("|   (%d)   |   (%d)   |   (%d)   |   (%d)   |   (%d)   |\n",1,2,3,4,5);
@@ -390,3 +393,28 @@ void print_delivery_box(T_Record*p,int b){
   printf("--------------------------------------------------\n");
 }
 
+int change_row(int b){
+ if(b>=1&&b<=5){
+   return 0;
+  }
+ else if(b>=6&&b<=10){
+   return 1;
+   }
+ else return 2;
+}
+
+int change_col(int b){
+ if(b%5==1){
+   return 0;
+  }
+ else if(b%5==2){
+   return 1;
+  }
+ else if(b%5==3){
+   return 2;
+  }
+else if(b%5==4){
+   return 3;
+  }
+else return 4;
+}

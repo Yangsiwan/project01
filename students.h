@@ -49,3 +49,5 @@ void m_update(T_Record*p,char *n,int r,char*pw);
 int take_delivery(T_Record*p, int d);
 void current_time();
 void print_delivery_box(T_Record *p,int b);
+int change_row(int b);
+int change_col(int b);
