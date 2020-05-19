@@ -432,6 +432,7 @@ else{
 }
 
 void back_up(){
+ printf("==========================[BACK UP]==========================\n");
  printf("All data will be delete and records will be backed up.\n");
 printf("1.Yes 0.No >");
 int choose;
