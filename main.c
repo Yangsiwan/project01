@@ -7,7 +7,7 @@ void all_list(); //관리자가 비밀번호를 쳐야만 들어갈 수 있음.(
 void update_delivery();
 void load_file();//file loading
 void save_backup_file();
-void sort();
+void sort();//sorting
 void delete_record();
 void delete_empty_space();
 void save_statics();
