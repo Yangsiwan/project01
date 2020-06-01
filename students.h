@@ -3,7 +3,7 @@
 #include <string.h>
 #include <time.h>
 
-#define MAX_MEMBERS 51
+#define MAX_MEMBERS 53
 typedef struct student{
    char s_num[20];
    char name[20];
