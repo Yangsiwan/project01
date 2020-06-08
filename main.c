@@ -18,14 +18,14 @@ int main(){
    m_init();
    int menu;
    while(1){
-     printf("=====================[DELIVERY SYSTEM]=======================\n");
+     printf("======================[DELIVERY SYSTEM]========================\n");
      printf("1.Create          2.Search(number)      3.Search(room)\n");
      printf("4.Delivery List   5.All List            6.Update Delivery\n");
      printf("7.Load            8.Save(backup)        9.Sort\n");
      printf("10.Delete         11.Delete empty space 12.save (statics)\n");
      printf("13.Update         14.Find delivery      15.Backup\n");
      printf("0.Quit\n");
-     printf("============================================================\n");
+     printf("=============================================================\n");
      scanf("%d",&menu);
      printf("\n");
      switch(menu){
